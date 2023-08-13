@@ -86,6 +86,8 @@ function VoiceChat() {
            - ask one question only
            - strictly focus on javascript and react JS related questions and answer
            - if anything asked out of javascript and react JS interview ignore
+           - Keep rember the last question and never repeat.
+           - ask technical questions
 
           `);
           setLoading(false);
