@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #2C3E50;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.chat-container {
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+
+  overflow-y: auto;
+  height: 80vh;
+  border-radius: 12px;
+}
+
+.chat-message {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.Jan {
+  background-color: #e9e9e9;
+  align-self: flex-start;
+  display: flex;
+}
+
+.You {
+  background-color: #566573;
+  color: white;
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start-btn{
+  background: #229954;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    width: 6rem;
+    margin-right : 10px;
+    margin-top: 10px;
+}
+.stop-btn{
+  background: #B03A2E;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    width: 6rem;
+   
+    margin-top: 10px;
+}
+
+.myDiv {
+
+  background-size: cover;  /* this will cover the entire viewport of the div */
+  background-repeat: no-repeat;  /* this will prevent the image from repeating */
+  background-position: center;   /* this will center the background image */
+  width: 300px;  /* specify the width of the div */
+  height: 300px;
+  padding: 34px;
+  border-radius: 12px;
+  margin: 20px;
+}
+
+.myDiv-loader {
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 58px;
+  border-radius: 12px;
+  width: 50%;
+}
+
+canvas {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  border-radius: 12px !important;
+}
+
+.text-user {
+  background: #8E44AD;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    color: white;
+}
