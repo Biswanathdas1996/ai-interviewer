@@ -46,24 +46,24 @@ code {
 }
 
 .start-btn{
-  background: #229954;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 8px;
-    width: 6rem;
-    margin-right : 10px;
-    margin-top: 10px;
+  background: #229954 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    /* width: 6rem !important; */
+    margin-right : 10px !important;
+    margin-top: 10px !important;
 }
 .stop-btn{
-  background: #B03A2E;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 8px;
-    width: 6rem;
+  background: #B03A2E !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    /* width: 6rem !important; */
    
-    margin-top: 10px;
+    margin-top: 10px !important;
 }
 
 .myDiv {
@@ -101,4 +101,28 @@ canvas {
     border-radius: 5px;
     font-size: 10px;
     color: white;
+}
+
+.file-upload-div{
+  border: 1px solid #8080806e;
+  padding: 10px;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="file" i] {
+  appearance: none;
+  background-color: initial;
+  cursor: default;
+  align-items: baseline;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space-collapse: preserve;
+  text-wrap: nowrap;
+  text-align: start !important;
+  padding: initial;
+  border: initial;
+  overflow: hidden !important;
+  padding: 9px;
 }
