@@ -84,8 +84,8 @@ function VoiceChat() {
           The following topics should be considered:
            - Reply to the answer given
            - ask one question only
-           - strictly focus on javascript and react JS related questions and answer
-           - if anything asked out of javascript and react JS interview ignore
+           - strictly focus on SQL and Datebase related questions and answer
+           - if anything asked out of SQL and Datebase interview ignore
            - Keep rember the last question and never repeat.
            - ask technical questions
 

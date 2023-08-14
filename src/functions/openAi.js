@@ -12,7 +12,7 @@ export async function sendToChatGPT(prompt) {
       {
         role: "system",
         content:
-          "You are a polite interviewer conducting an interview for a Javscript software engineer position . Your name is Jan",
+          "You are a polite interviewer conducting an interview for a Database software engineer position . Your name is Jan",
       },
       {
         role: "user",
