@@ -8,8 +8,9 @@ import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import Datatable from "./UI/Datatable";
 import ModeChage from "./UI/ModeChage";
 import ContextForAutomatedQNA from "./UI/ContextForAutomatedQNA";
+import Credential from "./UI/Credential";
 import SampleCsv from "../sample/QnA.csv";
-
+import TouchAppIcon from "@mui/icons-material/TouchApp";
 const style = {
   position: "absolute",
   top: "50%",
@@ -123,6 +124,7 @@ function CsvUpload() {
             Settings
           </Typography>
 
+          <Credential />
           <ModeChage setMode={setMode} />
 
           {mode === "manual" ? (
@@ -134,7 +136,11 @@ function CsvUpload() {
                     color="info"
                     variant="outlined"
                     onClick={handleDownload}
-                    style={{ marginRight: 10, color: "white" }}
+                    style={{
+                      marginRight: 10,
+                      color: "white",
+                      // background: "rgb(102 56 121)",
+                    }}
                   >
                     Download Sample CSV
                   </Button>
@@ -147,6 +153,16 @@ function CsvUpload() {
               <ContextForAutomatedQNA />
             </>
           )}
+          <Button
+            variant="outlined"
+            // color="success"
+            onClick={() => window.location.reload()}
+            startIcon={<TouchAppIcon fontSize="large" />}
+            className="end-btn"
+          >
+            {" "}
+            Apply Changes
+          </Button>
         </Box>
       </Modal>
     </div>

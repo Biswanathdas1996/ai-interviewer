@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactMic } from "react-mic";
 import { sendToChatGPT } from "../functions/openAi";
 import ChatBox from "../components/ChatBox";
@@ -40,8 +40,16 @@ function VoiceChat() {
   const [isRecording, setRecording] = useState(false);
   const [responseData, setResponseData] = useState([]);
   const [speaking, setSpeaking] = useState(false);
-
   const [loading, setLoading] = useState(false);
+  const [settings, setSettings] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("ai-config")) {
+      const defaultSettings = localStorage.getItem("ai-config");
+      const tempSettings = JSON.parse(defaultSettings);
+      setSettings(tempSettings);
+    }
+  }, []);
 
   // const { speak } = useSpeechSynthesis();
 
@@ -78,7 +86,10 @@ function VoiceChat() {
           // speak({ text: transcript });
           stopRecording();
           setLoading(true);
-          const response = await sendToChatGPT(createPrompt(transcript));
+          const response = await sendToChatGPT(
+            createPrompt(transcript),
+            settings
+          );
           setLoading(false);
           console.log("=====response===>", response.choices[0].message.content);
           responseData.push({

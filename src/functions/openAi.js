@@ -1,11 +1,10 @@
-export async function sendToChatGPT(prompt) {
+import { base_url } from "../config";
+
+export async function sendToChatGPT(prompt, settings) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("api-key", "ee0aad3b4f7042e88a5252d5c1697fa9");
-  myHeaders.append(
-    "Authorization",
-    "Bearer Bearer a8fe99cb6b354a06913f189536cdf8fc"
-  );
+  myHeaders.append("api-key", settings.key);
+  myHeaders.append("Authorization", `Bearer Bearer ${settings.auth}`);
 
   var raw = JSON.stringify({
     messages: [
@@ -20,7 +19,7 @@ export async function sendToChatGPT(prompt) {
       },
     ],
     max_tokens: 800,
-    temperature: 0.7,
+    temperature: 0.8,
     frequency_penalty: 0,
     presence_penalty: 0,
     top_p: 0.95,
@@ -34,10 +33,7 @@ export async function sendToChatGPT(prompt) {
     redirect: "follow",
   };
 
-  const result = await fetch(
-    "https://azure-test12.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview",
-    requestOptions
-  )
+  const result = await fetch(base_url, requestOptions)
     .then((response) => response.json())
     .then((result) => {
       console.log(result);

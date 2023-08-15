@@ -1,7 +1,12 @@
 import React from "react";
 import Main from "./components/Main";
 
-import { defaultContext, defaultInstructions } from "./config";
+import {
+  defaultContext,
+  defaultInstructions,
+  api_key,
+  authorization,
+} from "./config";
 
 function App() {
   React.useEffect(() => {
@@ -16,6 +21,13 @@ function App() {
         instructions: defaultInstructions,
       };
       localStorage.setItem("ai-settings", JSON.stringify(defaultSettings));
+    }
+    if (!localStorage.getItem("ai-config")) {
+      const defaultSettings = {
+        key: api_key,
+        auth: authorization,
+      };
+      localStorage.setItem("ai-config", JSON.stringify(defaultSettings));
     }
   }, []);
 

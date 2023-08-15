@@ -33,7 +33,7 @@ const DynamicDataTable = ({ data }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
-        <TableHead style={{ background: "#6C3483" }}>
+        <TableHead style={{ background: "rgb(102 56 121)" }}>
           <TableRow>
             {headers.map((header) => (
               <TableCell key={header} style={{ color: "white" }}>
