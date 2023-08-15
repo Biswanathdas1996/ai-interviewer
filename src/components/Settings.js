@@ -4,10 +4,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-
+import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import Datatable from "./UI/Datatable";
 import ModeChage from "./UI/ModeChage";
 import ContextForAutomatedQNA from "./UI/ContextForAutomatedQNA";
+import SampleCsv from "../sample/QnA.csv";
 
 const style = {
   position: "absolute",
@@ -17,10 +18,11 @@ const style = {
   width: "80vw",
   height: "90vh",
   overflowY: "auto",
-  bgcolor: "background.paper",
+  //   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  color: "white",
 };
 
 function CsvUpload() {
@@ -28,16 +30,16 @@ function CsvUpload() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
   const [data, setData] = useState(null);
 
   const [mode, setMode] = useState(null);
 
   const handleChange = (e) => {
-    setFile(e.target.files[0]);
+    handleUpload(e.target.files[0]);
   };
 
-  const handleUpload = () => {
+  const handleUpload = (file) => {
     if (!file) {
       alert("Please select a file first.");
       return;
@@ -63,9 +65,10 @@ function CsvUpload() {
             answer: row[answersIndex],
           }));
 
-          setData(jsonData);
-          localStorage.setItem("qaData", JSON.stringify(jsonData));
-          alert("Data stored successfully in local storage.");
+          const filteredData = jsonData.filter((item) => item.question !== "");
+
+          setData(filteredData);
+          localStorage.setItem("qaData", JSON.stringify(filteredData));
         } else {
           alert("No data found in CSV.");
         }
@@ -84,16 +87,38 @@ function CsvUpload() {
     }
   }, []);
 
+  const handleDownload = () => {
+    const filePath = SampleCsv; // Specify the path to your sample CSV file
+
+    // Create a temporary anchor element
+    const link = document.createElement("a");
+    link.href = filePath;
+    link.download = "sample.csv"; // Specify the desired filename
+
+    // Simulate a click event to trigger the download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button
+        variant="outlined"
+        onClick={handleOpen}
+        endIcon={<SettingsSuggestIcon />}
+        style={{ color: "white" }}
+      >
+        Settings
+      </Button>
+
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} style={{ background: "#2C3E50" }}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Settings
           </Typography>
@@ -104,13 +129,16 @@ function CsvUpload() {
             <>
               <div className="file-upload-div">
                 <input type="file" onChange={handleChange} accept=".csv" />
-                <Button
-                  color="warning"
-                  variant="outlined"
-                  onClick={handleUpload}
-                >
-                  Upload
-                </Button>
+                <div>
+                  <Button
+                    color="info"
+                    variant="outlined"
+                    onClick={handleDownload}
+                    style={{ marginRight: 10, color: "white" }}
+                  >
+                    Download Sample CSV
+                  </Button>
+                </div>
               </div>
               {data && <Datatable data={data} />}
             </>

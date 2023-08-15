@@ -46,7 +46,7 @@ code {
 }
 
 .start-btn{
-  background: #229954 !important;
+  background: #2299549c !important;
     color: white !important;
     border: none !important;
     padding: 10px 15px !important;
@@ -56,13 +56,22 @@ code {
     margin-top: 10px !important;
 }
 .stop-btn{
-  background: #B03A2E !important;
+  background: #b03a2ebf !important;
     color: white !important;
     border: none !important;
     padding: 10px 15px !important;
     border-radius: 8px !important;
     /* width: 6rem !important; */
-   
+    margin-right : 10px !important;
+    margin-top: 10px !important;
+}
+.end-btn{
+  background: #b03a2e2e !important;
+    color: white !important;
+    border: 1px solid #b03a2e !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    /* width: 6rem !important; */
     margin-top: 10px !important;
 }
 

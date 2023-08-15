@@ -131,8 +131,8 @@ function VoiceChat() {
               record={isRecording}
               className="sound-wave"
               visualSetting="sinewave"
-              strokeColor="#000000"
-              backgroundColor="#BB8FCE"
+              strokeColor="#ffff"
+              backgroundColor="#bb8fce2b"
             />
           </center>
         </div>

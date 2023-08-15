@@ -25,7 +25,10 @@ export default function ControlledRadioButtonsGroup({ setMode }) {
   return (
     <div className="file-upload-div">
       <FormControl>
-        <FormLabel id="demo-controlled-radio-buttons-group">
+        <FormLabel
+          id="demo-controlled-radio-buttons-group"
+          style={{ color: "white" }}
+        >
           Operation Mode
         </FormLabel>
         <RadioGroup

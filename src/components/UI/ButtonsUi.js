@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import PauseCircleIcon from "@mui/icons-material/PauseCircle";
@@ -43,6 +43,17 @@ export default function ButtonsUi({
           Start
         </Button>
       )}
+
+      <Button
+        variant="outlined"
+        // color="success"
+        onClick={() => window.location.reload()}
+        startIcon={<LogoutIcon fontSize="large" />}
+        className="end-btn"
+      >
+        {" "}
+        End Interview
+      </Button>
     </div>
   );
 }

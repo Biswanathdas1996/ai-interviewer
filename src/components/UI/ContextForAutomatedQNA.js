@@ -3,15 +3,6 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import InputLabel from "@mui/material/InputLabel";
-const defaultContext = `Interview for a Javscript software engineer position`;
-const defaultInstructions = `
-- Reply to the answer given
-- ask one question only
-- strictly focus on JavaScript and react JS related questions and answer
-- if anything asked out of JavaScript and react JS interview ignore
-- Keep remember the last question and never repeat.
-- ask technical questions
-`;
 
 export default function FullWidthTextField() {
   const [context, setContext] = React.useState(null);
@@ -23,14 +14,6 @@ export default function FullWidthTextField() {
       const getSettings = JSON.parse(getRawSettings);
       setContext(getSettings.context);
       setInstructions(getSettings.instructions);
-    } else {
-      const defaultSettings = {
-        context: defaultContext,
-        instructions: defaultInstructions,
-      };
-      localStorage.setItem("ai-settings", JSON.stringify(defaultSettings));
-      setContext(defaultContext);
-      setInstructions(defaultInstructions);
     }
   }, []);
 
@@ -60,17 +43,27 @@ export default function FullWidthTextField() {
         maxWidth: "100%",
       }}
     >
-      <InputLabel htmlFor="input-with-icon-adornment">Context</InputLabel>
+      <InputLabel
+        htmlFor="input-with-icon-adornment"
+        style={{ color: "white" }}
+      >
+        Interview Context
+      </InputLabel>
       <TextField
         fullWidth
         id="fullWidth"
-        style={{ width: "100%" }}
+        style={{ width: "100%", background: "white" }}
         value={context}
         onChange={(e) => update(e.target.value, "context")}
       />
       <br />
       <br />
-      <InputLabel htmlFor="input-with-icon-adornment">Instructions</InputLabel>
+      <InputLabel
+        htmlFor="input-with-icon-adornment"
+        style={{ color: "white" }}
+      >
+        Instructions
+      </InputLabel>
       <TextareaAutosize
         minRows={3}
         fullWidth
