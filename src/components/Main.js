@@ -6,6 +6,9 @@ import VoiceOverImage from "./UI/VoiceOverImage";
 import Loader from "../asset/ios_9.gif";
 import ButtonsUi from "./UI/ButtonsUi";
 import { createPrompt } from "../functions/prompt";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 
 import Settings from "./Settings";
 
@@ -41,7 +44,7 @@ function VoiceChat() {
   const [responseData, setResponseData] = useState([]);
   const [speaking, setSpeaking] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [settings, setSettings] = useState(false);
+  const [settings, setSettings] = useState(null);
 
   useEffect(() => {
     if (localStorage.getItem("ai-config")) {
@@ -86,6 +89,7 @@ function VoiceChat() {
           // speak({ text: transcript });
           stopRecording();
           setLoading(true);
+
           const response = await sendToChatGPT(
             createPrompt(transcript),
             settings
@@ -122,7 +126,46 @@ function VoiceChat() {
 
   return (
     <>
-      <div
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={8}
+            lg={8}
+            style={{ display: "grid", alignItems: "center" }}
+          >
+            <center>
+              <VoiceOverImage speaking={speaking} />
+              <ButtonsUi
+                startRecording={startRecording}
+                stopRecording={stopRecording}
+                isRecording={isRecording}
+              />
+              <ReactMic
+                record={isRecording}
+                className="sound-wave"
+                visualSetting="sinewave"
+                strokeColor="#ffff"
+                backgroundColor="#bb8fce2b"
+              />
+            </center>
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4}>
+            {responseData && <ChatBox chatData={responseData} />}
+            <center>
+              {loading && (
+                <div
+                  style={{ backgroundImage: `url(${Loader})` }}
+                  className="myDiv-loader"
+                ></div>
+              )}
+            </center>
+          </Grid>
+        </Grid>
+      </Box>
+      {/* <div
         style={{
           display: "flex",
           padding: 20,
@@ -130,35 +173,9 @@ function VoiceChat() {
           alignItems: "center",
         }}
       >
-        <div>
-          <center>
-            <VoiceOverImage speaking={speaking} />
-            <ButtonsUi
-              startRecording={startRecording}
-              stopRecording={stopRecording}
-              isRecording={isRecording}
-            />
-            <ReactMic
-              record={isRecording}
-              className="sound-wave"
-              visualSetting="sinewave"
-              strokeColor="#ffff"
-              backgroundColor="#bb8fce2b"
-            />
-          </center>
-        </div>
-        <div style={{ width: "100%" }}>
-          {responseData && <ChatBox chatData={responseData} />}
-          <center>
-            {loading && (
-              <div
-                style={{ backgroundImage: `url(${Loader})` }}
-                className="myDiv-loader"
-              ></div>
-            )}
-          </center>
-        </div>
-      </div>
+        
+       
+      </div> */}
 
       <Settings />
     </>

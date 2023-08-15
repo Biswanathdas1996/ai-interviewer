@@ -135,3 +135,17 @@ input[type="file" i] {
   overflow: hidden !important;
   padding: 9px;
 }
+
+
+@keyframes rotateIcon {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.SettingsSuggestIcon {
+  animation: rotateIcon 10s linear infinite; 
+}

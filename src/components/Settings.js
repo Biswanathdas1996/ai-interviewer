@@ -11,6 +11,9 @@ import ContextForAutomatedQNA from "./UI/ContextForAutomatedQNA";
 import Credential from "./UI/Credential";
 import SampleCsv from "../sample/QnA.csv";
 import TouchAppIcon from "@mui/icons-material/TouchApp";
+import Fab from "@mui/material/Fab";
+import SettingsIcon from "@mui/icons-material/Settings";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -104,14 +107,19 @@ function CsvUpload() {
 
   return (
     <div>
-      <Button
-        variant="outlined"
+      <Fab
+        sx={{
+          position: "fixed",
+          bottom: 16,
+          right: 16,
+          background: "#ad1b02",
+        }}
+        color="primary"
+        aria-label="add"
         onClick={handleOpen}
-        endIcon={<SettingsSuggestIcon />}
-        style={{ color: "white" }}
       >
-        Settings
-      </Button>
+        <SettingsIcon className="SettingsSuggestIcon" />
+      </Fab>
 
       <Modal
         open={open}
