@@ -45,6 +45,11 @@ export default function ControlledRadioButtonsGroup({ setMode }) {
           <FormControlLabel
             value="manual"
             control={<Radio />}
+            label="Semi automatic QnA (Involved GPT)"
+          />
+          <FormControlLabel
+            value="manual-no-gpt"
+            control={<Radio />}
             label="Manual QnA"
           />
         </RadioGroup>

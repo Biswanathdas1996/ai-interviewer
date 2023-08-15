@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ReactMic } from "react-mic";
-import { sendToChatGPT } from "../functions/openAi";
+import { aiResponseHandler } from "../functions/openAi";
 import ChatBox from "../components/ChatBox";
 import VoiceOverImage from "./UI/VoiceOverImage";
 import Loader from "../asset/ios_9.gif";
 import ButtonsUi from "./UI/ButtonsUi";
-import { createPrompt } from "../functions/prompt";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -90,18 +89,15 @@ function VoiceChat() {
           stopRecording();
           setLoading(true);
 
-          const response = await sendToChatGPT(
-            createPrompt(transcript),
-            settings
-          );
+          const response = await aiResponseHandler(transcript, settings);
           setLoading(false);
-          console.log("=====response===>", response.choices[0].message.content);
+          console.log("=====response===>", response);
           responseData.push({
             user: "Jan",
-            text: response.choices[0].message.content,
+            text: response,
           });
           setResponseData(responseData);
-          speakLongText(response.choices[0].message.content);
+          speakLongText(response);
         } else {
           interimTranscript += transcript;
         }

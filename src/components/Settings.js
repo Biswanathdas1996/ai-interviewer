@@ -134,7 +134,7 @@ function CsvUpload() {
           <Credential />
           <ModeChage setMode={setMode} />
 
-          {mode === "manual" ? (
+          {mode !== "automated" ? (
             <>
               <div className="file-upload-div">
                 <input type="file" onChange={handleChange} accept=".csv" />
