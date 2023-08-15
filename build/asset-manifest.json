@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.230a461c.css",
+    "main.css": "/static/css/main.d3829752.css",
     "main.js": "/static/js/main.0b316076.js",
     "static/js/787.200f21a3.chunk.js": "/static/js/787.200f21a3.chunk.js",
     "static/media/mic.gif": "/static/media/mic.b7346d2087b126dff436.gif",
+    "static/media/Intro-HELLO-FUTURE-1920x1080_v2.gif": "/static/media/Intro-HELLO-FUTURE-1920x1080_v2.391a5047a703ce22e6cb.gif",
     "static/media/girl.gif": "/static/media/girl.8848dc7c6eff11cd0097.gif",
     "static/media/ios_9.gif": "/static/media/ios_9.9bc53476035bb6443edf.gif",
     "static/media/QnA.csv": "/static/media/QnA.707c5298c9a2562f3e2f.csv",
     "index.html": "/index.html",
-    "main.230a461c.css.map": "/static/css/main.230a461c.css.map",
+    "main.d3829752.css.map": "/static/css/main.d3829752.css.map",
     "main.0b316076.js.map": "/static/js/main.0b316076.js.map",
     "787.200f21a3.chunk.js.map": "/static/js/787.200f21a3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.230a461c.css",
+    "static/css/main.d3829752.css",
     "static/js/main.0b316076.js"
   ]
 }

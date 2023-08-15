@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import Datatable from "./UI/Datatable";
 import ModeChage from "./UI/ModeChage";
 import ContextForAutomatedQNA from "./UI/ContextForAutomatedQNA";
