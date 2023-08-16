@@ -45,13 +45,23 @@ export default function ControlledRadioButtonsGroup({ setMode }) {
           <FormControlLabel
             value="manual"
             control={<Radio />}
-            label="Semi automatic QnA (Involved GPT)"
+            label="Semi automatic QnA "
           />
+          <span style={{ fontSize: 10 }}>
+            For Semi automatic QnA need to only upload the{" "}
+            <b style={{ color: "#ad1b02" }}>questions</b> and GPT will validate
+            the user response with the questions
+          </span>
           <FormControlLabel
             value="manual-no-gpt"
             control={<Radio />}
             label="Manual QnA"
           />
+          <span style={{ fontSize: 10 }}>
+            For Manual QnA need to upload the <b>questions</b> as well as the{" "}
+            <b style={{ color: "#ad1b02" }}>answer</b>, there is no interaction
+            with GPT
+          </span>
         </RadioGroup>
       </FormControl>
     </div>

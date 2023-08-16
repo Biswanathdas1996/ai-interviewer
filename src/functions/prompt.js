@@ -25,11 +25,18 @@ export function manualMode(text) {
     const question = qna[count];
     localStorage.setItem("manual-qna-count", Number(count) + 1);
 
-    const context = `If possible then only Evaluare the between User response and  Correct Answer then ask the bellow Question 
+    const prevQuestion = qna[count - 1]?.question;
 
-    User response :  ${text}
+    let dynamicText = "";
 
-    Correct Answer : ${qna[count - 1]?.answer || "null"}
+    if (prevQuestion) {
+      dynamicText = `
+      Please validate the user response of "${text}" to the question "${prevQuestion}" in 1 sentence.
+      Please provide answer of ${prevQuestion} in 1 sentence.
+      `;
+    }
+
+    const context = `Ask the bellow Question 
 
     Question serial: ${count}
 
@@ -45,7 +52,7 @@ export function manualMode(text) {
   - give one response at a time
   - ask technical questions`;
 
-    return context + instructions;
+    return dynamicText + context + instructions;
   }
 }
 
