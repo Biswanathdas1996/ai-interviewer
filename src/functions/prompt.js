@@ -1,10 +1,12 @@
+import MockIAGFILE from "../sample/Policy_Mock.json";
+
 export function automatedMode(text) {
   const getSettings = localStorage.getItem("ai-settings");
   if (getSettings && getSettings != null) {
     const settings = JSON.parse(getSettings);
 
     const userAnsewr = `User answer: ${text}`;
-    const context = ` Context: ${settings.context}`;
+    const context = ` Context: ${JSON.stringify(MockIAGFILE)}`;
     const instructions = ` The following topics should be considered:
                             ${settings.instructions}
                         `;

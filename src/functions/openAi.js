@@ -12,7 +12,7 @@ const requestToChatGpt = async (text, settings) => {
       {
         role: "system",
         content:
-          "You are a polite interviewer conducting an interview . Your name is Jan",
+          "You are a polite insurance guide who will help customer with there policy details . Your name is Jan",
       },
       {
         role: "user",
