@@ -7,8 +7,10 @@ export function automatedMode(text) {
 
     const userAnsewr = `User answer: ${text}`;
     const context = ` Context: ${JSON.stringify(MockIAGFILE)}`;
-    const instructions = ` The following topics should be considered:
-                            ${settings.instructions}
+    const instructions = ` The following topics must be considered:
+                          - Reply to the answer given
+                          - if the the question is not from the given context say "I dont know"
+                          - if and data asked out of the dataset say negative and asked him/her to contact customer care
                         `;
     return userAnsewr + context + instructions;
   }

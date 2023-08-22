@@ -1,7 +1,9 @@
 export const base_url =
-  "https://azure-test12.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview";
+  "https://soumenopenai.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview";
+// export const base_url =
+//   "https://azure-test12.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview";
 
-export const api_key = "ee0aad3b4f7042e88a5252d5c1697fa9";
+export const api_key = "3a5a6eba4d2546558d3fa749ef9fb5ce";
 export const authorization = "a8fe99cb6b354a06913f189536cdf8fc";
 
 export const defaultContext = `Interview for a Javscript software engineer position`;
