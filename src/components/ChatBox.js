@@ -15,7 +15,8 @@ function ChatBox({ chatData }) {
             <div key={index} className={`chat-message ${chat.user}`}>
               <div>
                 <b className="text-user">{chat.user}</b>
-                <p>{chat.text}</p>
+                {/* <p>{chat.text}</p> */}
+                <div dangerouslySetInnerHTML={{ __html: chat.text }} />
               </div>
             </div>
           ))}
