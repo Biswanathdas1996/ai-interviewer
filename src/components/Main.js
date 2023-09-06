@@ -6,7 +6,6 @@ import VoiceOverImage from "./UI/VoiceOverImage";
 import Loader from "../asset/ios_9.gif";
 import ButtonsUi from "./UI/ButtonsUi";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
 import Settings from "./Settings";
@@ -89,7 +88,11 @@ function VoiceChat() {
           stopRecording();
           setLoading(true);
 
-          const response = await aiResponseHandler(transcript, settings);
+          const response = await aiResponseHandler(
+            transcript,
+            settings,
+            responseData
+          );
           setLoading(false);
           console.log("=====response===>", response);
           responseData.push({

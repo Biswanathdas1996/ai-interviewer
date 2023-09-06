@@ -1,14 +1,16 @@
-export function automatedMode(text) {
+export function automatedMode(text, responseData) {
   const getSettings = localStorage.getItem("ai-settings");
   if (getSettings && getSettings != null) {
     const settings = JSON.parse(getSettings);
 
     const userAnsewr = `User answer: ${text}`;
     const context = ` Context: ${settings.context}`;
+    const chatHistory = ` Chat History: ${JSON.stringify(responseData)}`;
     const instructions = ` The following topics should be considered:
+                            - Keep follow the Chat History for further response 
                             ${settings.instructions}
                         `;
-    return userAnsewr + context + instructions;
+    return userAnsewr + context + chatHistory + instructions;
   }
 }
 
@@ -56,11 +58,11 @@ export function manualMode(text) {
   }
 }
 
-export function createPrompt(text) {
+export function createPrompt(text, responseData) {
   const operationMode = localStorage.getItem("operation-mode");
   if (operationMode === "manual") {
     return manualMode(text);
   } else {
-    return automatedMode(text);
+    return automatedMode(text, responseData);
   }
 }

@@ -1,12 +1,12 @@
 import { base_url } from "../config";
 import { createPrompt } from "./prompt";
 
-const requestToChatGpt = async (text, settings) => {
+const requestToChatGpt = async (text, settings, responseData) => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("api-key", settings.key);
   myHeaders.append("Authorization", `Bearer Bearer ${settings.auth}`);
-  const prompt = createPrompt(text);
+  const prompt = createPrompt(text, responseData);
   var raw = JSON.stringify({
     messages: [
       {
@@ -144,13 +144,13 @@ const testRequest = async (text, settings) => {
   return result;
 };
 
-export async function aiResponseHandler(text, settings) {
+export async function aiResponseHandler(text, settings, responseData) {
   let result;
   const operationMode = localStorage.getItem("operation-mode");
   if (operationMode === "manual-no-gpt") {
     result = await manualAiResponse();
   } else {
-    result = await requestToChatGpt(text, settings);
+    result = await requestToChatGpt(text, settings, responseData);
   }
 
   return result;
